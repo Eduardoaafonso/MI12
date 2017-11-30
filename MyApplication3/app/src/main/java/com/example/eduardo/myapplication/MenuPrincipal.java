@@ -25,7 +25,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
     public void play(View view){
-        Intent it = new Intent(MenuPrincipal.this, game.class);
+        Intent it = new Intent(MenuPrincipal.this, org.altbeacon.beaconreference.MonitoringActivity.class);
         startActivity(it);
     }
 

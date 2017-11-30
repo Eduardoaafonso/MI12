@@ -4,4 +4,5 @@
     <string name="normal">Normal</string>
     <string name="hard">Hard</string>
     <string name="title_activity_menu_principal">Hot and Cold</string>
+    <string name="game_name">BeaconReference</string>
 </resources>
