@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hot and Cold</string>
+    <string name="easy">Easy</string>
+    <string name="normal">Normal</string>
+    <string name="hard">Hard</string>
+    <string name="title_activity_menu_principal">Hot and Cold</string>
+</resources>
