@@ -13,7 +13,6 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
-
     int counter = 0;
 
     @Override
@@ -34,7 +33,7 @@ public class MainActivity extends Activity {
 
                 try{
 
-                    while(counter==1 || counter <=5) {
+                    while(counter == 1 || counter <= 3) {
 
                         Thread.sleep(1000);
                         counter++;
