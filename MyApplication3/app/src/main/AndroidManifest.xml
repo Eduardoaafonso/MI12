@@ -29,7 +29,7 @@
             android:name=".MenuPrincipal"
             android:label="@string/title_activity_menu_principal" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN_ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
