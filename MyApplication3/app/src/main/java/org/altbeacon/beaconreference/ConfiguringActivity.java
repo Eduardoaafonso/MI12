@@ -29,7 +29,7 @@ import java.util.List;
 public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ListView lv = (ListView) findViewById(R.id.teste);
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,15 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
             Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
             setSupportActionBar(toolbar);
         }
-        catch (RuntimeException e){
+        catch (Exception e){
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Error");
             builder.setMessage("Sorry, there seems to be an errror while loading the Content View.");
             builder.setPositiveButton(android.R.string.ok, null);
         }
+
+        //beaconManager = BeaconManager.getInstanceForApplication(this);
+        lv = (ListView) findViewById(R.id.teste);
 
         try {
             beaconManager.bind(this);

@@ -87,7 +87,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
                 startActivity(it);
             }
-            catch (RuntimeException e) {
+            catch (Exception e) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Error");
                 builder.setMessage("Sorry, there seems to be an errror while launching the Content View.");
