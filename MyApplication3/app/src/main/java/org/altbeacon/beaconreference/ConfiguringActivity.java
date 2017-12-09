@@ -34,31 +34,16 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            setContentView(R.layout.activity_configuring);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
-            setSupportActionBar(toolbar);
-        }
-        catch (Exception e){
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("Sorry, there seems to be an errror while loading the Content View.");
-            builder.setPositiveButton(android.R.string.ok, null);
-        }
-
-        //beaconManager = BeaconManager.getInstanceForApplication(this);
+        setContentView(R.layout.activity_configuring);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
+        setSupportActionBar(toolbar);
         lv = (ListView) findViewById(R.id.teste);
 
-        try {
-            beaconManager.bind(this);
-        }
-        catch (RuntimeException e){
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Error");
-            builder.setMessage("Sorry, there seems to be an errror while loading the Beacon Manager.");
-            builder.setPositiveButton(android.R.string.ok, null);
-        }
-/*        List<String> your_array_list = new ArrayList<String>();
+        beaconManager = BeaconManager.getInstanceForApplication(this);
+
+        beaconManager.bind(this);
+
+        List<String> your_array_list = new ArrayList<String>();
         your_array_list.add("foo");
         your_array_list.add("bar");
 
@@ -67,7 +52,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
                 android.R.layout.simple_list_item_1,
                 your_array_list);
 
-        lv.setAdapter(arrayAdapter);*/
+        lv.setAdapter(arrayAdapter);
     }
 
     @Override 
@@ -101,7 +86,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
 
     @Override
     public void onBeaconServiceConnect() {
-/*        beaconManager.setRangeNotifier(new RangeNotifier() {
+        beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
 
@@ -116,6 +101,6 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
 
         try {
             beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
-        } catch (RemoteException e) {   }*/
+        } catch (RemoteException e) {   }
     }
 }

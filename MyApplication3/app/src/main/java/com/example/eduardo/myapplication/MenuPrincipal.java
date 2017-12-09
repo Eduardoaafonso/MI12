@@ -50,7 +50,6 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected  void onResume() {
         super.onResume();
-
         verifyBluetooth();
     }
 
@@ -83,16 +82,8 @@ public class MenuPrincipal extends AppCompatActivity {
             //      Toast.LENGTH_SHORT).show();
 
             //MODO DE EXIBICAO  de MENSAGEM 2
-            try{
-                Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
-                startActivity(it);
-            }
-            catch (Exception e) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Error");
-                builder.setMessage("Sorry, there seems to be an errror while launching the Content View.");
-                builder.setPositiveButton(android.R.string.ok, null);
-            }
+            Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
+            startActivity(it);
             return true;
         }
         ////////////////////////////////////
