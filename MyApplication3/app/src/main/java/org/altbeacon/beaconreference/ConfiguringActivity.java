@@ -1,15 +1,13 @@
 package org.altbeacon.beaconreference;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.view.LayoutInflater;
+import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.eduardo.myapplication.R;
 
@@ -20,19 +18,62 @@ import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
 
-public class ConfiguringActivity extends ListActivity implements BeaconConsumer {
+public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private LeDeviceListAdapter mLeDeviceListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuring);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
+        setSupportActionBar(toolbar);
+
+/*
+        Button easy = (Button) findViewById(R.id.easy);
+        easy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v.findViewById(android.R.id.content),"Easy selected",
+                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+
+        Button normal = (Button) findViewById(R.id.normal);
+        normal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v.findViewById(android.R.id.content),"Normal selected",
+                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+
+        Button hard = (Button) findViewById(R.id.hard);
+        hard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v.findViewById(android.R.id.content),"Hard selected",
+                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+*/
+
         beaconManager.bind(this);
+
+        ListView lv = (ListView) findViewById(R.id.teste);
+
+        List<String> your_array_list = new ArrayList<String>();
+        your_array_list.add("foo");
+        your_array_list.add("bar");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list);
+
+        lv.setAdapter(arrayAdapter);
     }
 
     @Override 
@@ -44,105 +85,43 @@ public class ConfiguringActivity extends ListActivity implements BeaconConsumer 
     @Override 
     protected void onPause() {
         super.onPause();
-        mLeDeviceListAdapter.clear();
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
     }
 
     @Override 
     protected void onResume() {
         super.onResume();
-        // Initializes list view adapter.
-        mLeDeviceListAdapter = new LeDeviceListAdapter();
-        setListAdapter(mLeDeviceListAdapter);
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
+    }
+
+    public void easy(View view){
+        Snackbar.make(this.findViewById(android.R.id.content),"Easy selected",
+                Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }
+    public void normal(View view){
+        Snackbar.make(this.findViewById(android.R.id.content),"Normal selected",
+                Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    }
+    public void hard(View view){
+        Snackbar.make(this.findViewById(android.R.id.content),"Hard selected",
+                Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
     @Override
     public void onBeaconServiceConnect() {
-        beaconManager.setRangeNotifier(new RangeNotifier() {
-           @Override
-           public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
-              if (beacons.size() > 0) {
-                 //EditText editText = (EditText)RangingActivity.this.findViewById(R.id.rangingText);
-                 //Beacon firstBeacon = beacons.iterator().next();
-                 //logToDisplay("The first beacon " + firstBeacon.toString() + " is about " + firstBeacon.getDistance() + " meters away.");
-                  for(Iterator<Beacon> i = beacons.iterator(); i.hasNext();) {
-                      Beacon firstBeacon = i.next();
-                      mLeDeviceListAdapter.addDevice(firstBeacon.getId1().toString());
-                  }
-                  mLeDeviceListAdapter.notifyDataSetChanged();
-              }
-           }
+/*        beaconManager.setRangeNotifier(new RangeNotifier() {
+            @Override
+            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
+
+                if (beacons.size() > 0) {
+                    for(Beacon i : beacons) {
+
+                    }
+                }
+            }
 
         });
-    }
 
-    // Adapter for holding devices found through scanning.
-    private class LeDeviceListAdapter extends BaseAdapter {
-        private ArrayList<String> mLeDevices;
-        private LayoutInflater mInflator;
-
-        public LeDeviceListAdapter() {
-            super();
-            mLeDevices = new ArrayList<String>();
-            mInflator = ConfiguringActivity.this.getLayoutInflater();
-        }
-
-        public void addDevice(String device) {
-            if(!mLeDevices.contains(device)) {
-                mLeDevices.add(device);
-            }
-        }
-
-        public String getDevice(int position) {
-            return mLeDevices.get(position);
-        }
-
-        public void clear() {
-            mLeDevices.clear();
-        }
-
-        @Override
-        public int getCount() {
-            return mLeDevices.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return mLeDevices.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            ViewHolder viewHolder;
-            // General ListView optimization code.
-            if (view == null) {
-                view = mInflator.inflate(R.layout.activity_ranging, null);
-                viewHolder = new ViewHolder();
-                viewHolder.device = (TextView) view.findViewById(R.id.device);
-                viewHolder.checkBox = (CheckBox) view.findViewById(R.id.checkBox);
-                view.setTag(viewHolder);
-            } else {
-                viewHolder = (ViewHolder) view.getTag();
-            }
-
-            String deviceName = mLeDevices.get(i);
-            if (deviceName != null && deviceName.length() > 0)
-                viewHolder.device.setText(deviceName);
-            else
-                viewHolder.device.setText("Dispositif unconnu");
-
-            return view;
-        }
-    }
-
-    static class ViewHolder {
-        TextView device;
-        CheckBox checkBox;
+        try {
+            beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
+        } catch (RemoteException e) {   }*/
     }
 }

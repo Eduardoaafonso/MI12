@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eduardo.myapplication">
-    package="org.altbeacon.beaconreference">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.eduardo.myapplication"
+    tools:ignore="ExtraText">
 
-    <uses-permission android:name="android.permission.INTERNET"/> //////BEANCON
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -11,50 +16,29 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MenuPrincipal"
-            android:label="@string/title_activity_menu_principal"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".game"></activity>
-
-        ////////////////////////////BEANCON
-
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name="BeaconReferenceApplication"
-        android:launchMode="singleInstance">
-        <activity
-            android:name="org.altbeacon.beaconreference.MonitoringActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_activity_menu_principal" />
+        <activity android:name=".game" />
         <activity
             android:name="org.altbeacon.beaconreference.RangingActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="Playing"
+            android:parentActivityName=".MenuPrincipal"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="org.altbeacon.beaconreference.ConfiguringActivity"
-            android:label="@string/app_name" >
-        </activity>
-
-
-
+            android:label="Configuring"
+            android:parentActivityName=".MenuPrincipal"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
 
-                if(counter == 6){
+                if(counter == 4){
 
                     Intent it = new Intent(MainActivity.this, MenuPrincipal.class);
                     startActivity(it);

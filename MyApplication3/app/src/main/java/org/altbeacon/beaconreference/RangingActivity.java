@@ -50,14 +50,11 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     @Override 
     protected void onPause() {
         super.onPause();
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
     }
 
     @Override 
     protected void onResume() {
         super.onResume();
-        // Initializes list view adapter.
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
     }
 
     @Override
@@ -69,7 +66,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                  //EditText editText = (EditText)RangingActivity.this.findViewById(R.id.rangingText);
                  //Beacon firstBeacon = beacons.iterator().next();
                  //logToDisplay("The first beacon " + firstBeacon.toString() + " is about " + firstBeacon.getDistance() + " meters away.");
-                  for(Iterator<Beacon> i = beacons.iterator(); i.hasNext();) {
+/*                  for(Iterator<Beacon> i = beacons.iterator(); i.hasNext();) {
                       Beacon firstBeacon = i.next();
                       switch(firstBeacon.getId1().toString()){
                           case "1cc68855-6883-4300-a884-411ecc6688cc":
@@ -78,6 +75,20 @@ public class RangingActivity extends Activity implements BeaconConsumer {
 
                           case "9a33d88a-a00a-488f-be99-deeaadff88dd":
                               logToDisplay2(firstBeacon.getId1().toString(), firstBeacon.getDistance());
+                              break;
+
+                          default:
+                              break;
+                      }
+                  }*/
+                  for(Beacon i : beacons) {
+                      switch(i.getId1().toString()){
+                          case "1cc68855-6883-4300-a884-411ecc6688cc":
+                              logToDisplay1(i.getId1().toString(), i.getDistance());
+                              break;
+
+                          case "9a33d88a-a00a-488f-be99-deeaadff88dd":
+                              logToDisplay2(i.getId1().toString(), i.getDistance());
                               break;
 
                           default:
@@ -97,7 +108,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     private void logToDisplay2(final String uuid, final double distance) {
         runOnUiThread(new Runnable() {
             public void run() {
-                EditText editText = (EditText)RangingActivity.this.findViewById(R.id.rangingText2);
+                EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
 
                 String affiche;
                 if (distance >= 2) {
