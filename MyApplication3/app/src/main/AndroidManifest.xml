@@ -42,7 +42,11 @@
             android:name="org.altbeacon.beaconreference.ConfiguringActivity"
             android:label="Configuring"
             android:parentActivityName=".MenuPrincipal"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

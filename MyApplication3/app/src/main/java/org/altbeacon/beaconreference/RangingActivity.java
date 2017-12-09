@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ListActivity;
 
@@ -107,6 +108,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
 
     private void logToDisplay2(final String uuid, final double distance) {
         runOnUiThread(new Runnable() {
+            @SuppressLint("DefaultLocale")
             public void run() {
                 EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
 
