@@ -59,11 +59,6 @@ public class MenuPrincipal extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void config(View view){
-        Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
-        startActivity(it);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -82,36 +77,22 @@ public class MenuPrincipal extends AppCompatActivity {
 
         /////////////////////////////////////
         //Funçoes para setar o TIME
-        if (id == R.id.easy) {
+        if (id == R.id.cfg) {
             //MODO DE EXIBICAO  de MENSAGEM 1
             // Toast.makeText(getApplicationContext(), "Easy selected",
             //      Toast.LENGTH_SHORT).show();
 
             //MODO DE EXIBICAO  de MENSAGEM 2
-            Snackbar.make(this.findViewById(android.R.id.content),"Easy selected",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            return true;
-        }
-
-        if (id == R.id.normal) {
-            //MODO DE EXIBICAO  de MENSAGEM 1
-            // Toast.makeText(getApplicationContext(), "Normal selected",
-            //         Toast.LENGTH_SHORT).show();
-
-            //MODO DE EXIBICAO  de MENSAGEM 2
-            Snackbar.make(this.findViewById(android.R.id.content),"Normal selected",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            return true;
-        }
-
-        if (id == R.id.hard) {
-            //MODO DE EXIBICAO  de MENSAGEM 1
-            //  Toast.makeText(getApplicationContext(), "Hard selected",
-            //          Toast.LENGTH_SHORT).show();
-
-            // MODO DE EXIBICAO  de MENSAGEM 2
-            Snackbar.make(this.findViewById(android.R.id.content),"Hard selected",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            try{
+                Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
+                startActivity(it);
+            }
+            catch (RuntimeException e) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Error");
+                builder.setMessage("Sorry, there seems to be an errror while launching the Content View.");
+                builder.setPositiveButton(android.R.string.ok, null);
+            }
             return true;
         }
         ////////////////////////////////////

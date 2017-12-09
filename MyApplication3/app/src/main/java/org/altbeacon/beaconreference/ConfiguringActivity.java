@@ -1,8 +1,13 @@
 package org.altbeacon.beaconreference;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.support.design.widget.Snackbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,53 +23,39 @@ import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
+    private ListView lv = (ListView) findViewById(R.id.teste);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuring);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
-        setSupportActionBar(toolbar);
+        try {
+            setContentView(R.layout.activity_configuring);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
+            setSupportActionBar(toolbar);
+        }
+        catch (RuntimeException e){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Error");
+            builder.setMessage("Sorry, there seems to be an errror while loading the Content View.");
+            builder.setPositiveButton(android.R.string.ok, null);
+        }
 
-/*
-        Button easy = (Button) findViewById(R.id.easy);
-        easy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(v.findViewById(android.R.id.content),"Easy selected",
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
-
-        Button normal = (Button) findViewById(R.id.normal);
-        normal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(v.findViewById(android.R.id.content),"Normal selected",
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
-
-        Button hard = (Button) findViewById(R.id.hard);
-        hard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(v.findViewById(android.R.id.content),"Hard selected",
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
-*/
-
-        beaconManager.bind(this);
-
-        ListView lv = (ListView) findViewById(R.id.teste);
-
-        List<String> your_array_list = new ArrayList<String>();
+        try {
+            beaconManager.bind(this);
+        }
+        catch (RuntimeException e){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Error");
+            builder.setMessage("Sorry, there seems to be an errror while loading the Beacon Manager.");
+            builder.setPositiveButton(android.R.string.ok, null);
+        }
+/*        List<String> your_array_list = new ArrayList<String>();
         your_array_list.add("foo");
         your_array_list.add("bar");
 
@@ -73,7 +64,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
                 android.R.layout.simple_list_item_1,
                 your_array_list);
 
-        lv.setAdapter(arrayAdapter);
+        lv.setAdapter(arrayAdapter);*/
     }
 
     @Override 
