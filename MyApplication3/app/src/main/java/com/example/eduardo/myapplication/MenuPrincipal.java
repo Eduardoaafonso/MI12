@@ -29,6 +29,13 @@ import org.altbeacon.beaconreference.ConfiguringActivity;
 public class MenuPrincipal extends AppCompatActivity {
     private static final String TAG = "BeaconReferenceApp";
     private static final int REQUEST_ENABLE_BT = 1;
+<<<<<<< HEAD
+<<<<<<< HEAD
+    private int timer;
+=======
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
+=======
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +46,21 @@ public class MenuPrincipal extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+        //RECBENDO VALOR DO TIMER
+        Intent extras = getIntent();
+        timer = extras.getIntExtra("timer", 0);
+        System.out.println(timer);
+        //////////////////////////////
+
+        //verifyBluetooth();
+=======
         verifyBluetooth();
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
+=======
+        verifyBluetooth();
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
         beaconManager.getBeaconParsers().clear();
@@ -50,12 +71,32 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected  void onResume() {
         super.onResume();
+<<<<<<< HEAD
+<<<<<<< HEAD
+        //verifyBluetooth();
+=======
         verifyBluetooth();
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
+=======
+        verifyBluetooth();
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
     }
 
     public void play(View view){
         Intent it = new Intent(MenuPrincipal.this, org.altbeacon.beaconreference.RangingActivity.class);
+<<<<<<< HEAD
+<<<<<<< HEAD
+        //PASSANDO O VALOR DO TIMER PARA A PROXIMA ATIVIDADE
+        Intent jogo = it.putExtra("timer", timer);
+        //int tt = it.getIntExtra("timer", timer);
+        //System.out.println(tt);
+        startActivity(jogo);
+        ///////////////////////////////////
+=======
+=======
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
         startActivity(it);
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
     }
 
     @Override

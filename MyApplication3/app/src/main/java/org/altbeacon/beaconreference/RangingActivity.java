@@ -3,14 +3,20 @@ package org.altbeacon.beaconreference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ListActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.RemoteException;
+import android.support.annotation.ColorInt;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +24,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.eduardo.myapplication.MenuPrincipal;
 import com.example.eduardo.myapplication.R;
 
 import org.altbeacon.beacon.AltBeacon;
@@ -30,6 +38,10 @@ import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
+import cn.iwgang.countdownview.CountdownView;
+
+import static android.media.MediaExtractor.MetricsConstants.FORMAT;
+
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
@@ -37,12 +49,26 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ranging);
+        setContentView(R.layout.animationball);
+        //setContentView(R.layout.activity_ranging); CODIGO ANTERIOR
+
+        //RECEBENDO O VALOR DO TIMER EM UM INT
+        Intent extras = getIntent();
+        int timer = extras.getIntExtra("timer", 0);
+        //System.out.println(timer);
+
+        //TIMER - ALGORITMO CRIADO REPOSITORIO GITHUB
+        CountdownView countDownTimer = findViewById(R.id.countdownview);
+        countDownTimer.start(timer*1000*60);
 
         beaconManager.bind(this);
     }
 
-    @Override 
+
+
+
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         beaconManager.unbind(this);
@@ -110,6 +136,25 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         runOnUiThread(new Runnable() {
             @SuppressLint("DefaultLocale")
             public void run() {
+<<<<<<< HEAD
+<<<<<<< HEAD
+                //EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
+=======
+                EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
+
+//                String affiche;
+//                if (distance >= 2) {
+//                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètres de distance." + "\n";
+//                }
+//                else{
+//                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètre de distance." + "\n";
+//                }
+//                editText.setText(affiche);
+
+                //seta a variavel como animationball.xml
+                ImageView circleColor = findViewById(R.id.bounceBallImage);
+=======
                 EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
 
                 String affiche;
@@ -120,6 +165,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètre de distance." + "\n";
                 }
                 editText.setText(affiche);
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
                 int bleue = 51*(int)Math.round(distance);
                 if (bleue > 255){
@@ -130,8 +176,15 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                 }
                 int rouge = 255 - bleue;
 
+
                 int couleur = 65536*rouge + bleue - 16777216;
-                editText.setBackgroundColor(couleur);
+
+                //troca a cor do objeto
+                ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+
+
+
+
             }
         });
     }
@@ -139,16 +192,20 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     private void logToDisplay1(final String uuid, final double distance) {
         runOnUiThread(new Runnable() {
             public void run() {
-                EditText editText = (EditText)RangingActivity.this.findViewById(R.id.rangingText1);
+//                EditText editText = (EditText)RangingActivity.this.findViewById(R.id.rangingText1);
+//
+//                String affiche;
+//                if (distance >= 2) {
+//                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètres de distance." + "\n";
+//                }
+//                else{
+//                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètre de distance." + "\n";
+//                }
+//                editText.setText(affiche);
 
-                String affiche;
-                if (distance >= 2) {
-                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètres de distance." + "\n";
-                }
-                else{
-                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètre de distance." + "\n";
-                }
-                editText.setText(affiche);
+                //seta a variavel como animationball.xml
+                ImageView circleColor = findViewById(R.id.bounceBallImage);
+
 
                 int bleue = 51*(int)Math.round(distance);
                 if (bleue > 255){
@@ -160,7 +217,10 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                 int rouge = 255 - bleue;
 
                 int couleur = 65536*rouge + bleue - 16777216;
-                editText.setBackgroundColor(couleur);
+
+                //troca a cor do objeto
+                ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+
             }
         });
     }

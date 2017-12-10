@@ -17,6 +17,70 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
         tools:layout_editor_absoluteX="0dp"
         tools:ignore="MissingConstraints">
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="easy"
+            android:text="@string/easy"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="normal"
+            android:text="@string/normal"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="hard"
+            android:text="@string/hard"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/teste"
+        android:layout_width="match_parent"
+        android:layout_height="429dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/conf_tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary" />
+
+    </android.support.design.widget.AppBarLayout>
+
+=======
 
         <Button
             android:id="@+id/easy"
@@ -46,6 +110,37 @@
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
+=======
+
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="easy"
+            android:text="@string/easy"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="normal"
+            android:text="@string/normal"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="hard"
+            android:text="@string/hard"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
     <ListView
         android:id="@+id/teste"
         android:layout_width="match_parent"
@@ -76,4 +171,8 @@
             android:background="?attr/colorPrimary" />
 
     </android.support.design.widget.AppBarLayout>
+<<<<<<< HEAD
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
+=======
+>>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 </android.support.constraint.ConstraintLayout>
