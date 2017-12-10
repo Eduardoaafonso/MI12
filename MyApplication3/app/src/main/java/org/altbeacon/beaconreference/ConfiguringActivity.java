@@ -6,13 +6,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import android.content.Intent;
-=======
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
-=======
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.design.widget.Snackbar;
@@ -48,13 +42,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
     private ListView lv;
     public ArrayList<Beacon> inrange = new ArrayList<Beacon>();
     private UsersAdapter arrayAdapter;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private Intent timer;
-=======
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
-=======
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +92,6 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
     @Override 
     protected void onResume() {
         super.onResume();
-<<<<<<< HEAD
-<<<<<<< HEAD
     }
 
     public void easy(View view){
@@ -135,40 +121,6 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
 
 
 
-=======
-    }
-
-    public void easy(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Easy selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-    public void normal(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Normal selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-    public void hard(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Hard selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
-=======
-    }
-
-    public void easy(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Easy selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-    public void normal(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Normal selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-    public void hard(View view){
-        Snackbar.make(this.findViewById(android.R.id.content),"Hard selected",
-                Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
     @Override
     public void onBeaconServiceConnect() {
         beaconManager.setRangeNotifier(new RangeNotifier() {

@@ -136,12 +136,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         runOnUiThread(new Runnable() {
             @SuppressLint("DefaultLocale")
             public void run() {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 //EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
-=======
-                EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
 //                String affiche;
 //                if (distance >= 2) {
@@ -154,18 +149,6 @@ public class RangingActivity extends Activity implements BeaconConsumer {
 
                 //seta a variavel como animationball.xml
                 ImageView circleColor = findViewById(R.id.bounceBallImage);
-=======
-                EditText editText = RangingActivity.this.findViewById(R.id.rangingText2);
-
-                String affiche;
-                if (distance >= 2) {
-                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètres de distance." + "\n";
-                }
-                else{
-                    affiche = uuid + " est à moins de " + String.format("%.2f", distance) + " mètre de distance." + "\n";
-                }
-                editText.setText(affiche);
->>>>>>> 18c67ee94053df510f99bd077e4682b7e8549c2c
 
                 int bleue = 51*(int)Math.round(distance);
                 if (bleue > 255){
