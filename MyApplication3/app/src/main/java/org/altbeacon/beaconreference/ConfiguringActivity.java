@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +29,7 @@ import com.example.eduardo.myapplication.R;
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
+import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 import org.altbeacon.beacon.simulator.StaticBeaconSimulator;
@@ -39,7 +41,6 @@ import java.util.List;
 public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ListView lv;
     public ArrayList<Beacon> inrange = new ArrayList<Beacon>();
     private UsersAdapter arrayAdapter;
     private Intent timer;
@@ -53,20 +54,8 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
 
         beaconManager.bind(this);
 
-        Beacon novo = new Beacon.Builder()
-                .setId1("2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6")
-                .setId2("1")
-                .setId3("2")
-                .build();
-
-
-        inrange.add(novo);
-        inrange.add(novo);
-        inrange.add(novo);
-        inrange.add(novo);
-
         arrayAdapter = new UsersAdapter(this, inrange);
-        lv = (ListView) findViewById(R.id.teste);
+        ListView lv = (ListView) findViewById(R.id.teste);
         lv.setAdapter(arrayAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -126,13 +115,18 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @SuppressLint("DefaultLocale")
             @Override
-            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
-/*                inrange.clear();
-                inrange.addAll(beacons);
-
-                arrayAdapter.clear();
-                arrayAdapter.addAll(inrange);
-                arrayAdapter.notifyDataSetChanged();*/
+            public void didRangeBeaconsInRegion(final Collection<Beacon> beacons, Region region) {
+                if(beacons.size() > 0) {
+                    inrange.clear();
+                    inrange.addAll(beacons);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            arrayAdapter.clear();
+                            arrayAdapter.addAll(beacons);
+                        }
+                    });
+                }
             }
         });
 

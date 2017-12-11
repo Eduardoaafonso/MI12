@@ -117,9 +117,6 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                           case "9a33d88a-a00a-488f-be99-deeaadff88dd":
                               logToDisplay2(i.getId1().toString(), i.getDistance());
                               break;
-
-                          default:
-                              break;
                       }
                   }
               }
