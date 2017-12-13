@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,10 +41,12 @@ import java.util.List;
 
 public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
-    private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
+    private BeaconManager beaconManager;
     public ArrayList<Beacon> inrange = new ArrayList<Beacon>();
+    private ArrayList<String> beacons = new ArrayList<String>();
+    private int timer = 5;
     private UsersAdapter arrayAdapter;
-    private Intent timer;
+    private Intent confs = new Intent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
         Toolbar toolbar = (Toolbar) findViewById(R.id.conf_tb);
         setSupportActionBar(toolbar);
 
+        beaconManager = BeaconManager.getInstanceForApplication(this);
         beaconManager.bind(this);
 
         arrayAdapter = new UsersAdapter(this, inrange);
@@ -61,15 +65,33 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             // argument position gives the index of item which is clicked
             public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
-                Snackbar.make(findViewById(android.R.id.content), inrange.get(position).getId1().toString(),
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                if(!beacons.contains(inrange.get(position).getId1().toString())) {
+                    Snackbar.make(findViewById(android.R.id.content), inrange.get(position).getId1().toString() + " added",
+                            Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    beacons.add(inrange.get(position).getId1().toString());
+                }
+                else{
+                    Snackbar.make(findViewById(android.R.id.content), inrange.get(position).getId1().toString() + " removed",
+                            Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    beacons.remove(inrange.get(position).getId1().toString());
+                }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        confs.putExtra("timer", timer);
+        confs.putExtra("beacons", beacons);
+        setResult(RESULT_OK, confs);
+
+        super.onBackPressed();
     }
 
     @Override 
     protected void onDestroy() {
         super.onDestroy();
+
         beaconManager.unbind(this);
     }
 
@@ -87,36 +109,29 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
         Snackbar.make(this.findViewById(android.R.id.content),"Easy selected",
                 Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 //SETANDO TIMER
-                Intent i = new Intent(this, MenuPrincipal.class);
-                timer = i.putExtra("timer",5);
-                startActivity(timer);
+        timer = 5;
     }
     public void normal(View view){
         Snackbar.make(this.findViewById(android.R.id.content),"Normal selected",
                 Snackbar.LENGTH_LONG).setAction("Action", null).show();
         //SETANDO TIMER
-        Intent i = new Intent(this, MenuPrincipal.class);
-        timer = i.putExtra("timer",3);
-        startActivity(timer);
+        timer = 3;
     }
     public void hard(View view){
         Snackbar.make(this.findViewById(android.R.id.content),"Hard selected",
                 Snackbar.LENGTH_LONG).setAction("Action", null).show();
         //SETANDO TIMER
-        Intent i = new Intent(this, MenuPrincipal.class);
-        timer = i.putExtra("timer",1);
-        startActivity(timer);
+        timer = 1;
     }
-
-
 
     @Override
     public void onBeaconServiceConnect() {
-        beaconManager.setRangeNotifier(new RangeNotifier() {
+        beaconManager.addRangeNotifier(new RangeNotifier() {
             @SuppressLint("DefaultLocale")
             @Override
             public void didRangeBeaconsInRegion(final Collection<Beacon> beacons, Region region) {
                 if(beacons.size() > 0) {
+                    Log.i(TAG, beacons.iterator().next().getId1().toString());
                     inrange.clear();
                     inrange.addAll(beacons);
                     runOnUiThread(new Runnable() {
@@ -142,10 +157,11 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
             TextView home;
         }
 
-        public UsersAdapter(Context context, ArrayList<Beacon> users) {
+        UsersAdapter(Context context, ArrayList<Beacon> users) {
             super(context, R.layout.item, users);
         }
 
+        @NonNull
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             // Get the data item for this position
