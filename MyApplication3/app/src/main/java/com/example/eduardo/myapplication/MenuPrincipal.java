@@ -8,9 +8,12 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Message;
+import android.preference.PreferenceActivity;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,6 +33,8 @@ import org.altbeacon.beaconreference.ConfiguringActivity;
 
 import java.util.ArrayList;
 
+import static android.system.Os.remove;
+
 public class MenuPrincipal extends AppCompatActivity {
     private static final String TAG = "BeaconReferenceApp";
     private static final int REQUEST_ENABLE_BT = 1;
@@ -46,7 +51,10 @@ public class MenuPrincipal extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        verifyRequirements();
+        //verifyRequirements();
+
+            doFirstRun();
+
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
         beaconManager.getBeaconParsers().clear();
@@ -54,10 +62,47 @@ public class MenuPrincipal extends AppCompatActivity {
                 setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
     }
 
+
+    private void doFirstRun() {
+
+        Context context = this;
+        boolean isFirstRun = getSharedPreferences("prefers", context.MODE_PRIVATE).getBoolean("isFirstRun", true);
+        // Place your dialog code here to display the dialog
+        if (isFirstRun) {
+            getSharedPreferences("prefers", context.MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("isFirstRun", false)
+                    .apply();
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+            // set title
+            alertDialogBuilder.setTitle("Tutorial");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Click ok to exit!")
+                    .setCancelable(false)
+                    .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, just close
+                            // the dialog box and do nothing
+                            dialog.cancel();
+                        }
+                    });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
+    }
+
     @Override
     protected  void onResume() {
         super.onResume();
-        verifyRequirements();
+        //verifyRequirements();
     }
 
     public void play(View view){
