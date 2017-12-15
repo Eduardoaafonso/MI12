@@ -7,9 +7,11 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,12 +39,14 @@ import org.altbeacon.beacon.simulator.StaticBeaconSimulator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ConfiguringActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "ConfiguringActivity";
     private BeaconManager beaconManager;
-    public ArrayList<Beacon> inrange = new ArrayList<Beacon>();
+    private ArrayList<Beacon> inrange = new ArrayList<Beacon>();
     private ArrayList<String> beacons = new ArrayList<String>();
     private int timer = 5;
     private UsersAdapter arrayAdapter;
@@ -127,18 +131,33 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
     @Override
     public void onBeaconServiceConnect() {
         beaconManager.addRangeNotifier(new RangeNotifier() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @SuppressLint("DefaultLocale")
             @Override
             public void didRangeBeaconsInRegion(final Collection<Beacon> beacons, Region region) {
                 if(beacons.size() > 0) {
                     Log.i(TAG, beacons.iterator().next().getId1().toString());
-                    inrange.clear();
-                    inrange.addAll(beacons);
+                    for(Beacon i : beacons) {
+                        int ind = inrange.indexOf(i);
+                        if (ind != -1) {
+                            inrange.set(ind, i);
+                        }
+                        else{
+                            inrange.add(i);
+                        }
+
+                        Collections.sort(inrange, new Comparator<Beacon>() {
+                            @Override
+                            public int compare(Beacon b1, Beacon b2) {
+                                return Double.compare(b1.getDistance(), b2.getDistance());
+                            }
+                        });
+                    }
+
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            arrayAdapter.clear();
-                            arrayAdapter.addAll(beacons);
+                            arrayAdapter.notifyDataSetChanged();
                         }
                     });
                 }
