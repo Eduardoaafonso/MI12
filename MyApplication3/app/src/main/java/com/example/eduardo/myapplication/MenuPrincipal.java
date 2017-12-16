@@ -56,7 +56,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         //verifyRequirements();
 
-            doFirstRun();
+        doFirstRun();
 
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
@@ -68,10 +68,10 @@ public class MenuPrincipal extends AppCompatActivity {
 
     private void doFirstRun() {
         Context context = this;
-        boolean isFirstRun = getSharedPreferences("prefers", context.MODE_PRIVATE).getBoolean("isFirstRun", true);
+        boolean isFirstRun = getSharedPreferences("prefers", MODE_PRIVATE).getBoolean("isFirstRun", true);
         // Place your dialog code here to display the dialog
         if (isFirstRun) {
-            getSharedPreferences("prefers", context.MODE_PRIVATE)
+            getSharedPreferences("prefers", MODE_PRIVATE)
                     .edit()
                     .putBoolean("isFirstRun", false)
                     .apply();
@@ -81,46 +81,47 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     private void tutorial() {
-        ConstraintLayout main = (ConstraintLayout) findViewById(R.id.coordinatorLayout);
+        final ConstraintLayout main = (ConstraintLayout) findViewById(R.id.coordinatorLayout);
 
-        LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        final LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
         assert layoutInflater != null;
         View view = layoutInflater.inflate(R.layout.tutorial, main);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                runOnUiThread(new Runnable() {
+            public void onClick(final View v) {
+                ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto);
+                ((ViewGroup) tut.getParent()).removeView(tut);
+
+                View view1 = layoutInflater.inflate(R.layout.activity_configuring, main);
+                View view = layoutInflater.inflate(R.layout.tutorial_conf, main);
+
+                view.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void run() {
-                        ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto);
+                    public void onClick(View v) {
+                        ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto2);
                         ((ViewGroup) tut.getParent()).removeView(tut);
+
+                        ConstraintLayout act = (ConstraintLayout) findViewById(R.id.conf);
+                        ((ViewGroup) act.getParent()).removeView(act);
+
+                        View view1 = layoutInflater.inflate(R.layout.animationball, main);
+                        View view = layoutInflater.inflate(R.layout.tutorial_gam, main);
+
+                        view.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto3);
+                                ((ViewGroup) tut.getParent()).removeView(tut);
+
+                                ConstraintLayout act = (ConstraintLayout) findViewById(R.id.gam);
+                                ((ViewGroup) act.getParent()).removeView(act);
+                            }
+                        });
                     }
                 });
             }
         });
-
-        /*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-        // set title
-        alertDialogBuilder.setTitle("Tutorial");
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Click ok to exit!")
-                .setCancelable(false)
-                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
-                    }
-                });
-
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
-        alertDialog.show();*/
     }
 
     @Override

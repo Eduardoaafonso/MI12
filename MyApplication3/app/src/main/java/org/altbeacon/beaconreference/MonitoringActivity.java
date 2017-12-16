@@ -88,7 +88,6 @@ public class MonitoringActivity extends Activity {
                     });
                     builder.show();
                 }
-                return;
             }
         }
     }
@@ -116,23 +115,10 @@ public class MonitoringActivity extends Activity {
     }
 
     private void verifyBluetooth() {
-
         try {
             if (!BeaconManager.getInstanceForApplication(this).checkAvailability()) {
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-/*                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Bluetooth not enabled");
-                builder.setMessage("Please enable bluetooth in settings and restart this application.");
-                builder.setPositiveButton(android.R.string.ok, null);
-                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        finish();
-                        System.exit(0);
-                    }
-                });
-                builder.show();*/
             }
         } catch (RuntimeException e) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -149,9 +135,7 @@ public class MonitoringActivity extends Activity {
 
             });
             builder.show();
-
         }
-
     }
 
     @Override
@@ -173,5 +157,4 @@ public class MonitoringActivity extends Activity {
             }
         });
     }
-
 }
