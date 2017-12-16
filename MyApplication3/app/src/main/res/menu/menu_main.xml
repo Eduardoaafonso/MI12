@@ -6,5 +6,9 @@
         android:id="@+id/cfg"
         android:orderInCategory="100"
         android:title="Configuration" />
+    <item
+        android:id="@+id/tut"
+        android:orderInCategory="100"
+        android:title="Tutorial" />
 
 </menu>

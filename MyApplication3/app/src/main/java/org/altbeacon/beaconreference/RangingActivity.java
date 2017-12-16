@@ -50,7 +50,6 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private ArrayList<String> beaconsConf;
-    private int numBeacons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         Intent extras = getIntent();
         int timer = extras.getIntExtra("timer", 0);
         beaconsConf = extras.getStringArrayListExtra("beacons");
-        numBeacons = beaconsConf.size();
+        int numBeacons = beaconsConf.size();
 
         ConstraintLayout holdBalls = (ConstraintLayout) findViewById(R.id.holdBalls);
 

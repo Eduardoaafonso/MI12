@@ -15,14 +15,17 @@ import android.os.Bundle;
 import android.os.Message;
 import android.preference.PreferenceActivity;
 import android.support.annotation.RequiresApi;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.altbeacon.beacon.BeaconManager;
@@ -64,7 +67,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
 
     private void doFirstRun() {
-
         Context context = this;
         boolean isFirstRun = getSharedPreferences("prefers", context.MODE_PRIVATE).getBoolean("isFirstRun", true);
         // Place your dialog code here to display the dialog
@@ -74,29 +76,51 @@ public class MenuPrincipal extends AppCompatActivity {
                     .putBoolean("isFirstRun", false)
                     .apply();
 
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                    context);
-            // set title
-            alertDialogBuilder.setTitle("Tutorial");
-
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage("Click ok to exit!")
-                    .setCancelable(false)
-                    .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // if this button is clicked, just close
-                            // the dialog box and do nothing
-                            dialog.cancel();
-                        }
-                    });
-
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-
-            // show it
-            alertDialog.show();
+            tutorial();
         }
+    }
+
+    private void tutorial() {
+        ConstraintLayout main = (ConstraintLayout) findViewById(R.id.coordinatorLayout);
+
+        LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        assert layoutInflater != null;
+        View view = layoutInflater.inflate(R.layout.tutorial, main);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto);
+                        ((ViewGroup) tut.getParent()).removeView(tut);
+                    }
+                });
+            }
+        });
+
+        /*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+        // set title
+        alertDialogBuilder.setTitle("Tutorial");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Click ok to exit!")
+                .setCancelable(false)
+                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();*/
     }
 
     @Override
@@ -133,18 +157,16 @@ public class MenuPrincipal extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
 
         /////////////////////////////////////
-        //Funçoes para setar o TIME
         if (id == R.id.cfg) {
-            //MODO DE EXIBICAO  de MENSAGEM 1
-            // Toast.makeText(getApplicationContext(), "Easy selected",
-            //      Toast.LENGTH_SHORT).show();
-
-            //MODO DE EXIBICAO  de MENSAGEM 2
             Intent it = new Intent(this, org.altbeacon.beaconreference.ConfiguringActivity.class);
             startActivityForResult(it, 0);
             return true;
         }
         ////////////////////////////////////
+        if (id == R.id.tut) {
+            tutorial();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
