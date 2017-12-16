@@ -180,9 +180,10 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
             super(context, R.layout.item, users);
         }
 
+        @SuppressLint("DefaultLocale")
         @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             // Get the data item for this position
             Beacon b = getItem(position);
             // Check if an existing view is being reused, otherwise inflate the view
@@ -192,8 +193,8 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
                 viewHolder = new ViewHolder();
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(R.layout.item, parent, false);
-                viewHolder.name = (TextView) convertView.findViewById(R.id.beaconName);
-                viewHolder.home = (TextView) convertView.findViewById(R.id.beaconDistance);
+                viewHolder.name = convertView.findViewById(R.id.beaconName);
+                viewHolder.home = convertView.findViewById(R.id.beaconDistance);
                 // Cache the viewHolder object inside the fresh view
                 convertView.setTag(viewHolder);
             } else {
@@ -202,6 +203,7 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
             }
             // Populate the data from the data object via the viewHolder object
             // into the template view.
+            assert b != null;
             viewHolder.name.setText(b.getId1().toString());
             viewHolder.home.setText(String.format("%.2f", b.getDistance()));
             // Return the completed view to render on screen

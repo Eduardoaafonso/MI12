@@ -7,8 +7,11 @@ import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -17,6 +20,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.RemoteException;
 import android.support.annotation.ColorInt;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +50,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private ArrayList<String> beaconsConf;
+    private int numBeacons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,45 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         Intent extras = getIntent();
         int timer = extras.getIntExtra("timer", 0);
         beaconsConf = extras.getStringArrayListExtra("beacons");
-        //System.out.println(timer);
+        numBeacons = beaconsConf.size();
+
+        ConstraintLayout holdBalls = (ConstraintLayout) findViewById(R.id.holdBalls);
+
+        LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        assert layoutInflater != null;
+        View view;
+        switch (numBeacons){
+            case 1:
+                view = layoutInflater.inflate(R.layout.ball1, holdBalls);
+                break;
+            case 2:
+                view = layoutInflater.inflate(R.layout.ball2, holdBalls);
+                break;
+            case 3:
+                view = layoutInflater.inflate(R.layout.ball3, holdBalls);
+                break;
+            case 4:
+                view = layoutInflater.inflate(R.layout.ball4, holdBalls);
+                break;
+            case 5:
+                view = layoutInflater.inflate(R.layout.ball5, holdBalls);
+                break;
+            default:
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Illegal number of Beacons selected");
+                builder.setMessage("Sorry, the number of Beacons selected is zero or not supported. " +
+                        "Please select a valid number of Beacons.");
+                builder.setPositiveButton(android.R.string.ok, null);
+                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        finish();
+                    }
+                });
+                builder.show();
+                timer = 0;
+                break;
+        }
 
         //TIMER - ALGORITMO CRIADO REPOSITORIO GITHUB
         CountdownView countDownTimer = findViewById(R.id.countdownview);
@@ -89,8 +132,9 @@ public class RangingActivity extends Activity implements BeaconConsumer {
            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
               if (beacons.size() > 0) {
                   for(Beacon i : beacons) {
-                      if(beaconsConf.contains(i.getId1().toString())) {
-                          logToDisplay(i.getDistance());
+                      int ind = beaconsConf.indexOf(i.getId1().toString());
+                      if(ind != -1) {
+                          logToDisplay(i.getDistance(), ind+1);
                           Log.d(TAG, "OK - Id: " + i.getId1().toString());
                       }
                       else{
@@ -107,12 +151,10 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         } catch (RemoteException e) {   }
     }
 
-    private void logToDisplay(final double distance) {
+    private void logToDisplay(final double distance, final int whi) {
         runOnUiThread(new Runnable() {
             @SuppressLint("DefaultLocale")
             public void run() {
-                ImageView circleColor = findViewById(R.id.bounceBallImage);
-
                 int bleue = 51*(int)Math.round(distance);
                 if (bleue > 255){
                     bleue = 255;
@@ -121,12 +163,36 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     bleue = 0;
                 }
                 int rouge = 255 - bleue;
-
-
                 int couleur = 65536*rouge + bleue - 16777216;
 
-                //troca a cor do objeto
-                ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                ImageView circleColor;
+                switch (whi){
+                    case 1:
+                        circleColor = findViewById(R.id.bounceBallImage1);
+                        //troca a cor do objeto
+                        ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                        break;
+                    case 2:
+                        circleColor = findViewById(R.id.bounceBallImage2);
+                        //troca a cor do objeto
+                        ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                        break;
+                    case 3:
+                        circleColor = findViewById(R.id.bounceBallImage3);
+                        //troca a cor do objeto
+                        ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                        break;
+                    case 4:
+                        circleColor = findViewById(R.id.bounceBallImage4);
+                        //troca a cor do objeto
+                        ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                        break;
+                    case 5:
+                        circleColor = findViewById(R.id.bounceBallImage5);
+                        //troca a cor do objeto
+                        ((GradientDrawable)circleColor.getBackground()).setColor(couleur);
+                        break;
+                }
             }
         });
     }

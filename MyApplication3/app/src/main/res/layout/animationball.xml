@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/bounceBallImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/ball_shaper" />
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
 
     <cn.iwgang.countdownview.CountdownView
         android:id="@+id/countdownview"
-        android:layout_centerInParent="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         app:isHideTimeBackground="false"
         app:isShowDay="false"
         app:isShowHour="false"
+        app:isShowMillisecond="false"
         app:isShowMinute="true"
         app:isShowSecond="true"
-        app:isShowMillisecond="false"
-        app:timeTextColor="#000"
-        app:timeTextSize="30sp"
         app:isTimeTextBold="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:suffixGravity="center"
-        app:suffixTextColor="#000"
-        app:suffixTextSize="12sp"
         app:suffixHour="h"
         app:suffixMinute="m"
         app:suffixSecond="s"
+        app:suffixTextColor="#000"
+        app:suffixTextSize="12sp"
         app:timeBgColor="#e6e6e6"
-        />
+        app:timeTextColor="#000"
+        app:timeTextSize="30sp" />
 
-</RelativeLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/holdBalls"
+        android:layout_width="match_parent"
+        android:layout_height="498dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
