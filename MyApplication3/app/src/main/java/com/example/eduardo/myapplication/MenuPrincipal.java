@@ -54,17 +54,15 @@ public class MenuPrincipal extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        //verifyRequirements();
-
-        doFirstRun();
-
+        verifyRequirements();
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
         beaconManager.getBeaconParsers().clear();
         beaconManager.getBeaconParsers().add(new BeaconParser().
                 setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
-    }
 
+        doFirstRun();
+    }
 
     private void doFirstRun() {
         Context context = this;
@@ -81,53 +79,24 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     private void tutorial() {
-        final ConstraintLayout main = (ConstraintLayout) findViewById(R.id.coordinatorLayout);
+        Intent it = new Intent(MenuPrincipal.this, com.example.eduardo.myapplication.TutoMain.class);
+        startActivity(it);
+    }
 
-        final LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        assert layoutInflater != null;
-        View view = layoutInflater.inflate(R.layout.tutorial, main);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto);
-                ((ViewGroup) tut.getParent()).removeView(tut);
-
-                View view1 = layoutInflater.inflate(R.layout.activity_configuring, main);
-                View view = layoutInflater.inflate(R.layout.tutorial_conf, main);
-
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto2);
-                        ((ViewGroup) tut.getParent()).removeView(tut);
-
-                        ConstraintLayout act = (ConstraintLayout) findViewById(R.id.conf);
-                        ((ViewGroup) act.getParent()).removeView(act);
-
-                        View view1 = layoutInflater.inflate(R.layout.animationball, main);
-                        View view = layoutInflater.inflate(R.layout.tutorial_gam, main);
-
-                        view.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ConstraintLayout tut = (ConstraintLayout) findViewById(R.id.tuto3);
-                                ((ViewGroup) tut.getParent()).removeView(tut);
-
-                                ConstraintLayout act = (ConstraintLayout) findViewById(R.id.gam);
-                                ((ViewGroup) act.getParent()).removeView(act);
-                            }
-                        });
-                    }
-                });
-            }
-        });
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
     protected  void onResume() {
         super.onResume();
-        //verifyRequirements();
+        verifyRequirements();
     }
 
     public void play(View view){

@@ -5,9 +5,53 @@
     android:id="@+id/tuto3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7f000000"
-    android:clickable="false"
-    android:focusableInTouchMode="false">
+    android:background="@android:color/background_light">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/gam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7f000000">
+
+        <cn.iwgang.countdownview.CountdownView
+            android:id="@+id/countdownview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:isHideTimeBackground="false"
+            app:isShowDay="false"
+            app:isShowHour="false"
+            app:isShowMillisecond="false"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:isTimeTextBold="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:suffixGravity="center"
+            app:suffixHour="h"
+            app:suffixMinute="m"
+            app:suffixSecond="s"
+            app:suffixTextColor="#000"
+            app:suffixTextSize="12sp"
+            app:timeBgColor="#e6e6e6"
+            app:timeTextColor="#000"
+            app:timeTextSize="30sp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/holdBalls"
+            android:layout_width="match_parent"
+            android:layout_height="498dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp">
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView1"
@@ -29,10 +73,10 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="116dp"
-        android:layout_height="58dp"
+        android:layout_width="122dp"
+        android:layout_height="57dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="3dp"
         android:background="#30ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,5 +108,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@android:color/transparent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -131,6 +131,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
               if (beacons.size() > 0) {
                   for(Beacon i : beacons) {
+                      Log.d(TAG, "Beacons: " + i.getId1().toString());
                       int ind = beaconsConf.indexOf(i.getId1().toString());
                       if(ind != -1) {
                           logToDisplay(i.getDistance(), ind+1);

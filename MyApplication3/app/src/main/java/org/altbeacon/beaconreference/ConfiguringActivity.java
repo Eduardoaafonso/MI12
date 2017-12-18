@@ -136,8 +136,8 @@ public class ConfiguringActivity extends AppCompatActivity implements BeaconCons
             @Override
             public void didRangeBeaconsInRegion(final Collection<Beacon> beacons, Region region) {
                 if(beacons.size() > 0) {
-                    Log.i(TAG, beacons.iterator().next().getId1().toString());
                     for(Beacon i : beacons) {
+                        Log.d(TAG, "Beacons: " + i.getId1().toString());
                         int ind = inrange.indexOf(i);
                         if (ind != -1) {
                             inrange.set(ind, i);

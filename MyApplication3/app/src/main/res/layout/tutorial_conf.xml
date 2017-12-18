@@ -5,9 +5,88 @@
     android:id="@+id/tuto2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7f000000"
-    android:clickable="false"
-    android:focusableInTouchMode="false">
+    android:background="@drawable/background_color"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/conf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#7f000000"
+        tools:context="org.altbeacon.beaconreference.ConfiguringActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Button
+                android:id="@+id/easy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/easy"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/normal"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/hard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hard"
+                tools:ignore="ButtonStyle" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/teste"
+            android:layout_width="match_parent"
+            android:layout_height="429dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/background_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        </ListView>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/conf_tb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary" />
+
+        </android.support.design.widget.AppBarLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView1"
@@ -28,7 +107,7 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="359dp"
+        android:layout_width="389dp"
         android:layout_height="47dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -48,7 +127,7 @@
         android:editable="false"
         android:text="The iBeacons in range appear here.\nClick in them to select or deselect it."
         android:textAlignment="textEnd"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/background_dark"
         android:textIsSelectable="false"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,12 +137,18 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="330dp"
-        android:layout_height="421dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="378dp"
+        android:layout_height="437dp"
+        android:layout_marginTop="127dp"
         android:background="#30ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@android:color/transparent" />
 
 </android.support.constraint.ConstraintLayout>
