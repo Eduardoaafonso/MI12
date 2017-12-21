@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/background_light"
             android:onClick="easy"
             android:text="@string/easy"
             tools:ignore="ButtonStyle" />
@@ -32,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/background_light"
             android:onClick="normal"
             android:text="@string/normal"
             tools:ignore="ButtonStyle" />
@@ -41,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/background_light"
             android:onClick="hard"
             android:text="@string/hard"
             tools:ignore="ButtonStyle" />

@@ -54,7 +54,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        verifyRequirements();
+        //verifyRequirements();
 
         BeaconManager beaconManager = org.altbeacon.beacon.BeaconManager.getInstanceForApplication(this);
         beaconManager.getBeaconParsers().clear();

@@ -2,54 +2,38 @@ package org.altbeacon.beaconreference;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ListActivity;
 
-import android.content.Context;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.RemoteException;
-import android.support.annotation.ColorInt;
 import android.support.constraint.ConstraintLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.eduardo.myapplication.MenuPrincipal;
 import com.example.eduardo.myapplication.R;
 
-import org.altbeacon.beacon.AltBeacon;
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
-import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
 import cn.iwgang.countdownview.CountdownView;
 
-import static android.media.MediaExtractor.MetricsConstants.FORMAT;
-
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private ArrayList<String> beaconsConf;
+    private int timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,16 +43,16 @@ public class RangingActivity extends Activity implements BeaconConsumer {
 
         //RECEBENDO O VALOR DO TIMER EM UM INT
         Intent extras = getIntent();
-        int timer = extras.getIntExtra("timer", 0);
+        timer = extras.getIntExtra("timer", 0);
         beaconsConf = extras.getStringArrayListExtra("beacons");
         int numBeacons = beaconsConf.size();
 
         ConstraintLayout holdBalls = (ConstraintLayout) findViewById(R.id.holdBalls);
 
-        LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         assert layoutInflater != null;
         View view;
-        switch (numBeacons){
+        switch (numBeacons) {
             case 1:
                 view = layoutInflater.inflate(R.layout.ball1, holdBalls);
                 break;
@@ -103,10 +87,11 @@ public class RangingActivity extends Activity implements BeaconConsumer {
 
         //TIMER - ALGORITMO CRIADO REPOSITORIO GITHUB
         CountdownView countDownTimer = findViewById(R.id.countdownview);
-        countDownTimer.start(timer*1000*60);
+        countDownTimer.start(timer * 1000 * 60);
 
         beaconManager.bind(this);
     }
+
 
     @Override
     protected void onDestroy() {
@@ -129,6 +114,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         beaconManager.addRangeNotifier(new RangeNotifier() {
            @Override
            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
+
               if (beacons.size() > 0) {
                   for(Beacon i : beacons) {
                       Log.d(TAG, "Beacons: " + i.getId1().toString());
@@ -155,6 +141,36 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         runOnUiThread(new Runnable() {
             @SuppressLint("DefaultLocale")
             public void run() {
+
+                CountdownView countDownTimer = findViewById(R.id.countdownview);
+                timer = countDownTimer.getSecond();
+                int timer_m = countDownTimer.getMinute();
+
+                if(timer_m == 0) {
+                    if (timer == 0) {
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(RangingActivity.this);
+                        dialog.setCancelable(false);
+                        dialog.setTitle("Time's up");
+                        dialog.setMessage("You can return to the Menu");
+                        dialog.setPositiveButton("Menu", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                            }
+                        });
+//                            .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
+//                                    //Action for "Cancel".
+//                                }
+//                            });
+
+                        final AlertDialog alert = dialog.create();
+                        alert.show();
+                    }
+                }
+
+
                 int bleue = 51*(int)Math.round(distance);
                 if (bleue > 255){
                     bleue = 255;
