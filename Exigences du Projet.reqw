@@ -1,0 +1,953 @@
+{
+  "id": "IRIbeacon",
+  "documents": [
+    {
+      "id": "001",
+      "name": "Exigences Projet IBeacon",
+      "lastId": 27,
+      "createdOn": "2017-09-29T09:00:00.760Z",
+      "createdBy": {
+        "name": "Nous",
+        "email": "nous@nous.fr",
+        "company": "N"
+      },
+      "lastChangedOn": "2017-12-19T22:17:44.436Z",
+      "lastChangedBy": {
+        "name": "lajsd",
+        "email": "jkasjdk@asdad.com",
+        "company": "asjkdjaskjd"
+      },
+      "data": [
+        {
+          "id": "1",
+          "heading": "Description générale",
+          "text": "<p>L'application devra permettre que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Il aura un certain temps pour réussir cet objectif. Les distances des iBeacon devront être mises à jour et montrées à l'utilisateur, selon l'intensité. Un message devra être affiché lorsque le mobile soit très proche du signal.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-09-29T09:00:02.448Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "text": null
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-09-29T09:28:07.287Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La dé</p>"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-09-29T09:28:32.203Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": null
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-09-29T10:02:25.876Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "Description générale"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-10-06T08:37:10.543Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La détection du signal des iBeacon</p>"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-10-20T09:47:49.610Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La détection du signal des iBeacon. L'utilisateur devra trouver les iBeacon en utilisant l'application. </p>"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-10-20T09:47:58.650Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La détection du signal des iBeacon. L'utilisateur devra trouver les iBeacon en utilisant l'application.Les distances actualisées des iBeacon doivent être montrés à l'utilisateur selon ses intensités.</p>"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-10-20T09:50:41.445Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'utilisateur devra trouver les iBeacon en utilisant l'application à partir du signel reçu. L'approche actualisées des iBeacon doivent être montrés à l'utilisateur selon ses intensités.Un message est montré lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "N",
+                "email": "nous@nous.fr",
+                "name": "Nous"
+              },
+              "changedOn": "2017-10-20T09:53:09.314Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'utilisateur devra trouver les iBeacon en utilisant l'application à partir du signel reçu. L'approximation actualisée des iBeacon doit être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T20:56:30.142Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'utilisateur devra trouver les iBeacon en utilisant l'application L'application devra  à partir de la puissance du signal reçu. L'approximation actualisée des iBeacon doit être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T20:57:27.649Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. L'approximation actualisée des iBeacon doit être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:01:14.127Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. L'approche devra être actualisée des iBeacon doit être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:02:06.745Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon  devra être m actualisée des iBeacon doit être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:02:45.396Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon devront être montrée à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:02:55.183Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon devront être montrées à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:03:28.656Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon devront être mises à jour et montrées à l'utilisateur selon l'intensité. Un message est affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:04:42.611Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permet que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon devront être mises à jour et montrées à l'utilisateur selon l'intensité. Un message devra être affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:05:28.768Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>L'application devra permettre que l'utilisateur trouve les iBeacon à partir de la puissance du signal reçu. Les distances des iBeacon devront être mises à jour et montrées à l'utilisateur, selon l'intensité. Un message devra être affiché lorsque le mobile soit très proche du signal.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:00:31.280Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "- Description générale"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:06:10.961Z"
+            }
+          ]
+        },
+        {
+          "id": "18",
+          "heading": "Affichage",
+          "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:34:41.333Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "heading": null,
+                "text": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:35:24.276Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:38:35.521Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l iBeacons devra</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:38:56.378Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:39:42.247Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:40:00.193Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "2 - Affichage",
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Ch</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:40:46.904Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:44:41.957Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable. La couleur des balles devra indiquer la distance, le rouge</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:44:59.447Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable. La couleur des balles devra indiquer la distance, le rouge implique la proximité,</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:45:47.898Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable. La couleur des balles devra indiquer la distance, le rouge implique la proximité, tandis que le bleue indique la</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:47:03.529Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable. La couleur des balles devra indiquer la distance, le rouge implique la proximité, tandis que le bleue indique que le but est loin.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:48:33.797Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>La distance relative entre l'utilisateur et l'iBeacon devra être affichée de manière intuitive. Chaque iBeacon correspondra à une balle colorée dans l'écran du portable. La couleur des balles devra indiquer la distance, le rouge implique la proximité, tandis que le bleu indique que le but est loin.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:50:57.480Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "- Affichage"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:06:15.678Z"
+            }
+          ],
+          "children": [
+            {
+              "id": "20",
+              "heading": "Balles",
+              "text": "<p>Chaque iBeacon correspondra à une balle colorée dans l'écran du portable.</p>",
+              "history": [
+                {
+                  "affectedNodeId": "18",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:50:44.558Z",
+                  "docId": "001",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:03.175Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:49.045Z"
+                }
+              ]
+            },
+            {
+              "id": "21",
+              "heading": "Couleurs",
+              "text": "<p>La couleur des balles devra indiquer la distance, le rouge implique la proximité, tandis que le bleu indique que le but est loin.</p>",
+              "history": [
+                {
+                  "affectedNodeId": "18",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:04.948Z",
+                  "docId": "001",
+                  "structureAction": "Create"
+                },
+                {
+                  "affectedNodeId": "20",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:07.567Z",
+                  "docId": "001",
+                  "structureAction": "SwapDown"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:27.391Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:51:54.618Z"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "heading": "Défi",
+          "text": "<p>Pour poser un défi à l'utilisateur, il y aura un limit de temps pour trouver tous les iBeacons.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:56:53.992Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "heading": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:57:41.077Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "Élément de ",
+                "text": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:59:52.964Z"
+            },
+            {
+              "attributesChanged": {
+                "heading": "Défit",
+                "text": "<p>Pour</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:02:20.718Z"
+            }
+          ],
+          "children": [
+            {
+              "id": "24",
+              "heading": "Difficulté",
+              "text": "<p>La difficulté du jeu changera par rapport à la limite de temps pour compléter la tâche. Elle pourra être choisie pour l'utilisateur.</p>",
+              "history": [
+                {
+                  "affectedNodeId": "23",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:02:20.716Z",
+                  "docId": "001",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:02:29.744Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:04:16.208Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<p>La difficulté du jeu changera par rapport à le limit de temps pour completer le tache. Elle poura être choisie pour l'utilisateur.</p>"
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:05:29.032Z"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "25",
+          "heading": "Tutoriel",
+          "text": "<p>Pour enseigner à configurer et jouer au jeu, un tutoriel devra être mis en place.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:05:59.300Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "heading": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:06:07.526Z"
+            },
+            {
+              "attributesChanged": {
+                "text": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:06:37.112Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>Pour apprendre le jeu à l'utilisateur</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:07:23.871Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p><span style=\"display:none\"> </span>Pour apprendre le jeu à l'utilisateur<span style=\"display:none\"> </span></p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:07:26.656Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p><span style=\"display:none\"> </span>Pour apprendre le jeu à l'utilisateur <span style=\"display:none\"> </span></p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:07:32.278Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p><span style=\"display:none\"> </span> </p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:07:57.537Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>Pour enseigner</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:08:42.865Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>Pour enseigner comment configurer et jouer au jeu, un tutoriel sera mettre en place.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:09:18.543Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>Pour enseigner à configurer et jouer au jeu, un tutoriel sera mis en place.</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:09:34.184Z"
+            }
+          ]
+        },
+        {
+          "id": "19",
+          "heading": "Succès",
+          "text": "<p>Pour que l'utilisateur sache qu'il a réussi le but du jeu, un message lui doit être montré lors de sa réussite.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:50:00.967Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "heading": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:50:38.081Z"
+            },
+            {
+              "attributesChanged": {
+                "text": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:53:42.381Z"
+            },
+            {
+              "attributesChanged": {
+                "text": "<p>Pour que l'utilisateur sache qu'il a réussi le but du jeu, un message lui doit être</p>"
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T21:54:01.795Z"
+            }
+          ],
+          "children": [
+            {
+              "id": "22",
+              "heading": "Message de réussite",
+              "text": "<p>Le message de réussite devra être concis, simplement annoncer le succès.</p>",
+              "history": [
+                {
+                  "affectedNodeId": "19",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:56:08.022Z",
+                  "docId": "001",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T21:56:45.122Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:12:48.353Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<p>Le message</p>"
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:13:49.558Z"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": "Message"
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:16:25.648Z"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "26",
+          "heading": "Échec",
+          "text": "<p>Lors de l'échec, le joueur devra être aussi communiqué avec un message.</p>",
+          "history": [
+            {
+              "affectedNodeId": "#",
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:13:58.289Z",
+              "docId": "001",
+              "structureAction": "Create"
+            },
+            {
+              "attributesChanged": {
+                "heading": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:14:03.599Z"
+            },
+            {
+              "attributesChanged": {
+                "text": null
+              },
+              "changedBy": {
+                "company": "asjkdjaskjd",
+                "email": "jkasjdk@asdad.com",
+                "name": "lajsd"
+              },
+              "changedOn": "2017-12-19T22:15:59.352Z"
+            }
+          ],
+          "children": [
+            {
+              "id": "27",
+              "heading": "Message d'échec",
+              "text": "<p>Le message d'échec devra aussi être concis, simplement annoncer l'échec.</p>",
+              "history": [
+                {
+                  "affectedNodeId": "26",
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:16:07.590Z",
+                  "docId": "001",
+                  "structureAction": "Create"
+                },
+                {
+                  "attributesChanged": {
+                    "heading": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:16:14.336Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": null
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:17:05.134Z"
+                },
+                {
+                  "attributesChanged": {
+                    "text": "<p>Le message déchec devra aussi être concis, simplement annoncer l'échec.</p>"
+                  },
+                  "changedBy": {
+                    "company": "asjkdjaskjd",
+                    "email": "jkasjdk@asdad.com",
+                    "name": "lajsd"
+                  },
+                  "changedOn": "2017-12-19T22:17:44.322Z"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "attributes": {
+      },
+      "view": {
+      }
+    }
+  ],
+  "traceability": {
+    "reference": {
+      "name": "Reference",
+      "source": "References",
+      "target": "Referenced by"
+    }
+  },
+  "metadata": {
+    "format": "2.2",
+    "saveHistory": true
+  }
+}
